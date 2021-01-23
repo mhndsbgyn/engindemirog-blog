@@ -1,0 +1,52 @@
+﻿@model IEnumerable<engindemirog_blog.Models.Kimlik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keywords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Decription)
+        </td>
+        <td>
+<img src="@item.ResimURL"  width="200" height="150"/>   
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unvan)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.KimlikId }) 
+        </td>
+    </tr>
+}
+
+</table>
